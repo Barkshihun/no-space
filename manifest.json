@@ -1,0 +1,12 @@
+{
+  "name": "띄어쓰기 제거",
+  "description": "띄어쓰기를 제거한다",
+  "version": "1.0.0",
+  "manifest_version": 3,
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["content.js"]
+    }
+  ]
+}
