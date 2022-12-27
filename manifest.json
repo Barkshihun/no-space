@@ -1,7 +1,7 @@
 {
   "name": "띄어쓰기 제거",
   "description": "띄어쓰기를 제거한다",
-  "version": "1.0.2",
+  "version": "1.1.0",
   "manifest_version": 3,
   "content_scripts": [
     {
@@ -11,13 +11,17 @@
     }
   ],
   "icons": {
-    "48": "icons/icon48.png"
+    "16": "icons/icon16.png",
+    "32": "icons/icon32.png",
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
   },
   "action": {
     "default_icon": {
       "16": "icons/icon16.png",
-      "24": "icons/icon24.png",
-      "32": "icons/icon32.png"
+      "32": "icons/icon32.png",
+      "48": "icons/icon48.png",
+      "128": "icons/icon128.png"
     }
   }
 }

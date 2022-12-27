@@ -1,18 +1,15 @@
-function removeSpace() {
-  const allElems = document.body.getElementsByTagName("*");
-  for (let i = 0; i < allElems.length; i++) {
-    const elem = allElems[i];
-    if (elem.tagName === "STYLE" || elem.tagName === "SCRIPT") {
+"use strict";
+const removeSpace = () => {
+  const treeWalker = document.createTreeWalker(document, NodeFilter.SHOW_TEXT);
+  while (treeWalker.nextNode()) {
+    const textNode = treeWalker.currentNode;
+    const parentNodeName = textNode.parentNode.nodeName;
+    if (parentNodeName === "SCRIPT" || parentNodeName === "STYLE") {
       continue;
     }
-    for (let i = 0; i < elem.childNodes.length; i++) {
-      const elemChildNode = elem.childNodes[i];
-      if (elemChildNode.nodeType === 3) {
-        elemChildNode.nodeValue = elemChildNode.nodeValue.replace(/ /g, "");
-      }
-    }
+    textNode.textContent = textNode.textContent.replace(/ /g, "");
   }
-}
+};
 const observer = new MutationObserver(() => removeSpace());
 observer.observe(document, { childList: true, subtree: true });
 removeSpace();
