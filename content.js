@@ -16,6 +16,13 @@ const removeSpace = () => {
       titlePropertyNode.attributes.title.textContent = titlePropertyNode.attributes.title.textContent.replace(/ /g, "");
     }
   }
+  const valuePropertyTreeWalker = document.createTreeWalker(document, NodeFilter.SHOW_ELEMENT, {
+    acceptNode: (node) => (node.value ? NodeFilter.FILTER_ACCEPT : NodeFilter.FILTER_SKIP),
+  });
+  while (valuePropertyTreeWalker.nextNode()) {
+    const valuePropertyNode = valuePropertyTreeWalker.currentNode;
+    valuePropertyNode.value = valuePropertyNode.value.replace(/ /g, "");
+  }
   const textNodeTreeWalker = document.createTreeWalker(document, NodeFilter.SHOW_TEXT);
   while (textNodeTreeWalker.nextNode()) {
     const textNode = textNodeTreeWalker.currentNode;
