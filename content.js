@@ -12,7 +12,9 @@ const removeSpace = () => {
   });
   while (titlePropertyTreeWalker.nextNode()) {
     const titlePropertyNode = titlePropertyTreeWalker.currentNode;
-    titlePropertyNode.title = titlePropertyNode.title.replace(/ /g, "");
+    if (titlePropertyNode.attributes.title) {
+      titlePropertyNode.attributes.title.textContent = titlePropertyNode.attributes.title.textContent.replace(/ /g, "");
+    }
   }
   const textNodeTreeWalker = document.createTreeWalker(document, NodeFilter.SHOW_TEXT);
   while (textNodeTreeWalker.nextNode()) {
